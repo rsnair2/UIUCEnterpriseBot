@@ -5,6 +5,9 @@ for information about whether a class is available or not. Just enter your
 username, password, term and the specific classes you want the WebBot to poll
 for and let the WebBot do its thing.
 
+You will need to download and install the
+<a href="http://docs.python-requests.org/en/latest/">
+Requests </a> library for python.
 
 Some features that I plan on adding are:
 <ol>

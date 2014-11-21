@@ -1,5 +1,6 @@
-from uiuc import UIUCSelfService
+from enterprise import UIUCEnterpriseWebBot
 import getpass
+import time
 
 
 def notify(query):
@@ -15,7 +16,7 @@ def main():
         print "Password does not match. Try again."
         password = getpass.getpass()
 
-    term = raw_input("Term: ")
+    term = raw_input("Term (format: 1yyyym, example: 120158 for Fall, 2015): ")
     queries = list()
 
     print "Type in your major, course and crn to monitor the class."
@@ -41,13 +42,18 @@ def main():
 
     print "Starting..."
 
-    ss = UIUCSelfService()
+    ss = UIUCEnterpriseWebBot()
     ss.term = term
     ss.login(username=username, password=password)
 
     completed = list()
 
     while len(completed) != len(queries):
+
+        # sleep for 30 seconds so that we don't bog down the UIUC enterprise
+        # server. Please do not remove this line or reduce the time.
+        time.sleep(30)
+
         for query in queries:
             classes = \
                 ss.get_classes(major=query['major'], course=query['course'])

@@ -19,11 +19,11 @@ working on adding functionality so that it can also automatically add the class.
 Auto-completion features so that when you start typing in a given Major, Course
 or CRN it suggests possible completions.
 </li>
-
+</ol>
 If you have some ideas, or if you want to contribute, feel free to get in touch
 with me. :)
 
-<h2> Disclaimer </h2>
+<h4> Disclaimer </h4>
 
 <p>
 Please note that I cannot provide any warranties on this software.

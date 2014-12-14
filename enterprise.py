@@ -4,16 +4,29 @@ import requests
 from HTMLParser import HTMLParser
 
 
+KEY_CRN_IN = "CRN_IN"
+KEY_RSTS_IN = "RSTS_IN"
+KEY_RSTS_DELETE = "DW"
+KEY_REG_BTN = "REG_BTN"
+
+
 class UIUCEnterpriseWebBot:
 
     session = None
     term = None
 
-    def __init__(self):
-        pass
+    FN_ADD_COURSE = 0
+    FN_REMOVE_COURSE = 1
+
+    def __init__(self, term=None, username=None, password=None):
+        self.session = None
+        self.set_term(term)
+        if username and password:
+            self.login(username, password)
 
     def set_term(self, term):
         self.term = term
+        return True
 
     def login(self, username, password):
         """
@@ -50,6 +63,7 @@ class UIUCEnterpriseWebBot:
         r = s.get(url=url, data=payload)
 
         self.session = s
+        return True
 
     def get_classes(self, major, course):
         """
@@ -67,7 +81,7 @@ class UIUCEnterpriseWebBot:
         :return: a dictionary where key is the CRN of every class found and
         value is a bool indicating whether or not the class is available
         """
-        if not self.session:
+        if not self.session or not self.term:
             return None
 
         t = self._get_classes_page(major, course, self.term)
@@ -85,18 +99,34 @@ class UIUCEnterpriseWebBot:
         return d
 
     def get_majors(self):
+        if not self.session or not self.term:
+            return False
         d = self._get_majors_page(term_in=self.term)
         r = d['r']
         p = self._UiucMajorsParser()
         p.feed(r.content)
-        return { 's' : p.majors_short, 'l' : p.majors }
+        return {'short': p.majors_short, 'long': p.majors}
 
     def get_courses(self, major):
+        if not self.session or not self.term:
+            return None
         t = self._get_courses_page(major, self.term)
         r = t['r']
         p = self._UiucCoursesParser()
         p.feed(r.content)
-        return { 'd': p.descriptions, 'n': p.courses }
+        return {'desc': p.descriptions, 'num': p.courses}
+
+    def add_course(self, crn):
+        if not self.session or not self.term:
+            return False
+        self._modify_schedule(self.FN_ADD_COURSE, crn)
+        return True
+
+    def remove_course(self, crn):
+        if not self.session or not self.term:
+            return False
+        self._modify_schedule(self.FN_REMOVE_COURSE, crn)
+        return True
 
     def _get_classes_page(self, major, course, term_in):
         s = self.session
@@ -332,3 +362,79 @@ class UIUCEnterpriseWebBot:
                         self.print_data = False
                 elif self.print_data:
                         self.internal_string = self.internal_string + data.strip('\n')
+
+    class _UIUCStudentInfoParser(HTMLParser):
+
+        def __init__(self):
+                HTMLParser.__init__(self)
+                self.results = list()
+
+        def handle_starttag(self, tag, attr):
+            if tag == 'input':
+                for attribute in attr:
+                    if attribute[0] == "type" and attribute[1] == "hidden":
+                        self.results.append(attr)
+
+    def _modify_schedule(self, fn, crn_in):
+        s = self.session
+        add_courses_page = self._get_add_courses_page(self.term)
+
+        parser = self._UIUCStudentInfoParser()
+        parser.feed(add_courses_page)
+        hidden_form_elems = parser.results
+        payload = dict()
+
+        for elem in hidden_form_elems:
+            name = None
+            value = None
+            for attr in elem:
+                if attr[0] == "name":
+                    name = attr[1].strip()
+                elif attr[0] == "value":
+                    value = attr[1].strip()
+
+            if name and not payload.get(name):
+                payload[name] = list()
+            payload[name].append(value)
+
+        if fn == self.FN_ADD_COURSE:
+            payload[KEY_CRN_IN].append(crn_in)
+
+        if fn == self.FN_REMOVE_COURSE:
+            for i in range(len(payload[KEY_CRN_IN])):
+                if payload[KEY_CRN_IN][i] == crn_in:
+                    payload[KEY_RSTS_IN][i] = KEY_RSTS_DELETE
+
+        payload[KEY_CRN_IN] += [''] * (15 - len(payload[KEY_CRN_IN]))
+        payload[KEY_REG_BTN].append('Submit Changes')
+
+        url = """https://ui2web1.apps.uillinois.edu/BANPROD1/bwckcoms.P_Regs"""
+        r = s.post(url=url, data=payload)
+        self.session = s
+        return {'s': s, 'r': r}
+
+    def _get_add_courses_page(self, term_in):
+        s = self.session
+
+        url = """https://ui2web1.apps.uillinois.edu/BANPROD1/twbkwbis.P_GenMenu?name=bmenu.P_StuMainMnu"""
+        payload = {}
+        r = s.get(url=url, data=payload)
+
+        url = """https://ui2web1.apps.uillinois.edu/BANPROD1/twbkwbis.P_GenMenu?name=bmenu.P_RegMnu"""
+        payload = {}
+        r = s.get(url=url, data=payload)
+
+        url = """https://ui2web1.apps.uillinois.edu/BANPROD1/twbkwbis.P_GenMenu?name=bmenu.P_RegAgreementAdd"""
+        payload = {}
+        r = s.get(url=url, data=payload)
+
+        url = """https://ui2web1.apps.uillinois.edu/BANPROD1/bwskfreg.P_AltPin"""
+        payload = {}
+        r = s.get(url=url, data=payload)
+
+        url = """https://ui2web1.apps.uillinois.edu/BANPROD1/bwskfreg.P_AltPin"""
+        payload = {u'term_in': [term_in]}
+        r = s.post(url=url, data=payload)
+
+        self.session = s
+        return r.content

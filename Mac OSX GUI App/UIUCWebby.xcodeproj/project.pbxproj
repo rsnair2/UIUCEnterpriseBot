@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C27EFE071B6DDA8500A29D9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EFE061B6DDA8500A29D9D /* AppDelegate.swift */; };
+		C27EFE091B6DDA8500A29D9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EFE081B6DDA8500A29D9D /* LoginViewController.swift */; };
+		C27EFE0B1B6DDA8500A29D9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C27EFE0A1B6DDA8500A29D9D /* Images.xcassets */; };
+		C27EFE0E1B6DDA8500A29D9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C27EFE0C1B6DDA8500A29D9D /* Main.storyboard */; };
+		C27EFE1A1B6DDA8500A29D9D /* UIUCWebbyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27EFE191B6DDA8500A29D9D /* UIUCWebbyTests.swift */; };
+		C2D1E9B31B6DE0F400ECA011 /* keychain.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D1E9B21B6DE0F400ECA011 /* keychain.m */; };
+		C2D1E9B51B6DEA3100ECA011 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1E9B41B6DEA3100ECA011 /* MainViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C27EFE141B6DDA8500A29D9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C27EFDF91B6DDA8400A29D9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C27EFE001B6DDA8500A29D9D;
+			remoteInfo = UIUCWebby;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C27EFE011B6DDA8500A29D9D /* UIUCWebby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIUCWebby.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C27EFE051B6DDA8500A29D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C27EFE061B6DDA8500A29D9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C27EFE081B6DDA8500A29D9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C27EFE0A1B6DDA8500A29D9D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C27EFE0D1B6DDA8500A29D9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C27EFE131B6DDA8500A29D9D /* UIUCWebbyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIUCWebbyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C27EFE181B6DDA8500A29D9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C27EFE191B6DDA8500A29D9D /* UIUCWebbyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUCWebbyTests.swift; sourceTree = "<group>"; };
+		C2D1E9AF1B6DDED600ECA011 /* UIUCWebby-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIUCWebby-Bridging-Header.h"; sourceTree = "<group>"; };
+		C2D1E9B21B6DE0F400ECA011 /* keychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = keychain.m; sourceTree = "<group>"; };
+		C2D1E9B41B6DEA3100ECA011 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C27EFDFE1B6DDA8500A29D9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C27EFE101B6DDA8500A29D9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C27EFDF81B6DDA8400A29D9D = {
+			isa = PBXGroup;
+			children = (
+				C27EFE031B6DDA8500A29D9D /* UIUCWebby */,
+				C27EFE161B6DDA8500A29D9D /* UIUCWebbyTests */,
+				C27EFE021B6DDA8500A29D9D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C27EFE021B6DDA8500A29D9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C27EFE011B6DDA8500A29D9D /* UIUCWebby.app */,
+				C27EFE131B6DDA8500A29D9D /* UIUCWebbyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C27EFE031B6DDA8500A29D9D /* UIUCWebby */ = {
+			isa = PBXGroup;
+			children = (
+				C27EFE061B6DDA8500A29D9D /* AppDelegate.swift */,
+				C27EFE081B6DDA8500A29D9D /* LoginViewController.swift */,
+				C2D1E9B41B6DEA3100ECA011 /* MainViewController.swift */,
+				C27EFE0A1B6DDA8500A29D9D /* Images.xcassets */,
+				C27EFE0C1B6DDA8500A29D9D /* Main.storyboard */,
+				C27EFE041B6DDA8500A29D9D /* Supporting Files */,
+				C2D1E9AF1B6DDED600ECA011 /* UIUCWebby-Bridging-Header.h */,
+				C2D1E9B21B6DE0F400ECA011 /* keychain.m */,
+			);
+			path = UIUCWebby;
+			sourceTree = "<group>";
+		};
+		C27EFE041B6DDA8500A29D9D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C27EFE051B6DDA8500A29D9D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C27EFE161B6DDA8500A29D9D /* UIUCWebbyTests */ = {
+			isa = PBXGroup;
+			children = (
+				C27EFE191B6DDA8500A29D9D /* UIUCWebbyTests.swift */,
+				C27EFE171B6DDA8500A29D9D /* Supporting Files */,
+			);
+			path = UIUCWebbyTests;
+			sourceTree = "<group>";
+		};
+		C27EFE171B6DDA8500A29D9D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C27EFE181B6DDA8500A29D9D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C27EFE001B6DDA8500A29D9D /* UIUCWebby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C27EFE1D1B6DDA8500A29D9D /* Build configuration list for PBXNativeTarget "UIUCWebby" */;
+			buildPhases = (
+				C27EFDFD1B6DDA8500A29D9D /* Sources */,
+				C27EFDFE1B6DDA8500A29D9D /* Frameworks */,
+				C27EFDFF1B6DDA8500A29D9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIUCWebby;
+			productName = UIUCWebby;
+			productReference = C27EFE011B6DDA8500A29D9D /* UIUCWebby.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C27EFE121B6DDA8500A29D9D /* UIUCWebbyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C27EFE201B6DDA8500A29D9D /* Build configuration list for PBXNativeTarget "UIUCWebbyTests" */;
+			buildPhases = (
+				C27EFE0F1B6DDA8500A29D9D /* Sources */,
+				C27EFE101B6DDA8500A29D9D /* Frameworks */,
+				C27EFE111B6DDA8500A29D9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C27EFE151B6DDA8500A29D9D /* PBXTargetDependency */,
+			);
+			name = UIUCWebbyTests;
+			productName = UIUCWebbyTests;
+			productReference = C27EFE131B6DDA8500A29D9D /* UIUCWebbyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C27EFDF91B6DDA8400A29D9D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Hopsy;
+				TargetAttributes = {
+					C27EFE001B6DDA8500A29D9D = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					C27EFE121B6DDA8500A29D9D = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C27EFE001B6DDA8500A29D9D;
+					};
+				};
+			};
+			buildConfigurationList = C27EFDFC1B6DDA8400A29D9D /* Build configuration list for PBXProject "UIUCWebby" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C27EFDF81B6DDA8400A29D9D;
+			productRefGroup = C27EFE021B6DDA8500A29D9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C27EFE001B6DDA8500A29D9D /* UIUCWebby */,
+				C27EFE121B6DDA8500A29D9D /* UIUCWebbyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C27EFDFF1B6DDA8500A29D9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27EFE0B1B6DDA8500A29D9D /* Images.xcassets in Resources */,
+				C27EFE0E1B6DDA8500A29D9D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C27EFE111B6DDA8500A29D9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C27EFDFD1B6DDA8500A29D9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27EFE091B6DDA8500A29D9D /* LoginViewController.swift in Sources */,
+				C27EFE071B6DDA8500A29D9D /* AppDelegate.swift in Sources */,
+				C2D1E9B31B6DE0F400ECA011 /* keychain.m in Sources */,
+				C2D1E9B51B6DEA3100ECA011 /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C27EFE0F1B6DDA8500A29D9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27EFE1A1B6DDA8500A29D9D /* UIUCWebbyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C27EFE151B6DDA8500A29D9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C27EFE001B6DDA8500A29D9D /* UIUCWebby */;
+			targetProxy = C27EFE141B6DDA8500A29D9D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C27EFE0C1B6DDA8500A29D9D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C27EFE0D1B6DDA8500A29D9D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C27EFE1B1B6DDA8500A29D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C27EFE1C1B6DDA8500A29D9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C27EFE1E1B6DDA8500A29D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UIUCWebby/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UIUCWebby/UIUCWebby-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C27EFE1F1B6DDA8500A29D9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = UIUCWebby/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UIUCWebby/UIUCWebby-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		C27EFE211B6DDA8500A29D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UIUCWebbyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UIUCWebby.app/Contents/MacOS/UIUCWebby";
+			};
+			name = Debug;
+		};
+		C27EFE221B6DDA8500A29D9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = UIUCWebbyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UIUCWebby.app/Contents/MacOS/UIUCWebby";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C27EFDFC1B6DDA8400A29D9D /* Build configuration list for PBXProject "UIUCWebby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C27EFE1B1B6DDA8500A29D9D /* Debug */,
+				C27EFE1C1B6DDA8500A29D9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C27EFE1D1B6DDA8500A29D9D /* Build configuration list for PBXNativeTarget "UIUCWebby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C27EFE1E1B6DDA8500A29D9D /* Debug */,
+				C27EFE1F1B6DDA8500A29D9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C27EFE201B6DDA8500A29D9D /* Build configuration list for PBXNativeTarget "UIUCWebbyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C27EFE211B6DDA8500A29D9D /* Debug */,
+				C27EFE221B6DDA8500A29D9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C27EFDF91B6DDA8400A29D9D /* Project object */;
+}

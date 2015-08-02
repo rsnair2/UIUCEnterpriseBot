@@ -12,9 +12,9 @@ class LoginViewController: NSViewController {
 
     @IBOutlet weak var UIUCLoginUsername: NSTextField!
     @IBOutlet weak var UIUCLoginPassword: NSSecureTextField!
-    var loggedIn: Bool!
     
     @IBAction func LoginButtonAction(sender: AnyObject) {
+        // add new username, password item to keychain
         let username = UIUCLoginUsername.stringValue
         let password = UIUCLoginPassword.stringValue
         StoreLoginInfo(password, username)
@@ -26,25 +26,23 @@ class LoginViewController: NSViewController {
     func transitionToLoggedInUX() {
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        // try and load password from keychain
         let defaults = NSUserDefaults.standardUserDefaults()
         let username: String? = defaults.objectForKey("username") as? String
         
-        var itemRef: UnsafeMutablePointer<SecKeychainItemRef>
         if((username) != nil) {
             let password = GetLoginInfo(username)
             if((password) != nil) {
                 self.transitionToLoggedInUX()
             }
         }
-
-        // Do any additional setup after loading the view.
     }
 
     override var representedObject: AnyObject? {
         didSet {
-        // Update the view, if already loaded.
         }
     }
 }

@@ -1,10 +1,21 @@
 from enterprise import UIUCEnterpriseWebBot
 import getpass
 import time
+import keyring
+from keyring.backends.OS_X import Keyring
 
 
-def notify(query):
-    print "Attn: " + query['crn'] + " is now available!"
+KEYCHAIN_SERVICE_NAME = "com.Hopsy.UIUCWebby"
+
+
+def notify(bot, query):
+    bot.add_course(query['crn'])
+
+
+def get_password(username, service_name):
+    keyring.set_keyring(Keyring())
+    password = keyring.get_password(service_name, username)
+    return password
 
 
 def main():
@@ -33,7 +44,7 @@ def main():
         if course == "X":
             break
 
-        crn = raw_input("CRN (example 54321: ")
+        crn = raw_input("CRN (example 54321): ")
 
         if crn == "X":
             break
@@ -61,11 +72,11 @@ def main():
             print query['crn'] + ": " + str(classes[query['crn']])
 
             if classes[query['crn']]:
-                notify(query)
+                notify(ss, query)
                 completed.append(query)
 
     print "Done!"
 
 
 if __name__ == "__main__":
-    main()
+    print(get_password('rsnair2', KEYCHAIN_SERVICE_NAME))

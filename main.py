@@ -35,9 +35,9 @@ RETURN_STATUS_FAILURE = 1
 
 def setup_arguments_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('major', metavar='m',
+    parser.add_argument('major', metavar='major',
                         type=str, help='Course major')
-    parser.add_argument('course', metavar='c',
+    parser.add_argument('course', metavar='course',
                         type=str, help='Course number')
     parser.add_argument('crn', metavar='crn',
                         type=str, help='Course registration number')
@@ -47,7 +47,7 @@ def setup_arguments_parser():
     parser.add_argument('--password', dest='password', type=str,
                         help='UIUC Enterprise password', default='')
     parser.add_argument('--add-on-release', dest='add_on_release',
-                        const=True, default=False,
+                        const=True, default=False, action='store_const',
                         help='Attempt to add course when it becomes available')
 
     # the service name is used by the Mac OSX keychain services api

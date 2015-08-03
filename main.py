@@ -46,6 +46,9 @@ def setup_arguments_parser():
     parser.add_argument('username', help='UIUC Enterprise username')
     parser.add_argument('--password', dest='password', type=str,
                         help='UIUC Enterprise password', default='')
+    parser.add_argument('--add-on-release', dest='add_on_release',
+                        const=True, default=False,
+                        help='Attempt to add course when it becomes available')
 
     # the service name is used by the Mac OSX keychain services api
     # for more info, read:
@@ -61,7 +64,7 @@ def get_password(username, service_name):
     return password
 
 
-def poll(username, password, term, major, course, crn):
+def poll(username, password, term, major, course, crn, add_on_release=False):
     ss = UIUCEnterpriseWebBot()
     ss.term = term
     ss.login(username=username, password=password)
@@ -73,6 +76,8 @@ def poll(username, password, term, major, course, crn):
             print(crn + ": " + str(classes[crn]))
 
             if classes[crn]:
+                if add_on_release:
+                    ss.add_course(crn)
                 sys.exit(RETURN_STATUS_SUCCESS)
 
         except KeyError:
@@ -100,7 +105,9 @@ def main():
         print >> sys.stderr, 'Error: unable to resolve passoword. Exiting...'
         sys.exit(RETURN_STATUS_FAILURE)
 
-    poll(username, password, args.term, args.major, args.course, args.crn)
+    poll(username, password, args.term, args.major, args.course,
+         args.crn, args.add_on_release)
 
 
 main()
+

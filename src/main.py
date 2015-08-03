@@ -21,13 +21,14 @@
     author: Rajiv Nair (rsnair.com)
 """
 
-from webbot import UIUCEnterpriseWebBot
 import time
-import keyring
-from keyring.backends.OS_X import Keyring
 import sys
 import argparse
 
+import keyring
+from keyring.backends.OS_X import Keyring
+
+from src.webbot import UIUCEnterpriseWebBot
 
 RETURN_STATUS_SUCCESS = 0
 RETURN_STATUS_FAILURE = 1
@@ -107,7 +108,4 @@ def main():
 
     poll(username, password, args.term, args.major, args.course,
          args.crn, args.add_on_release)
-
-
-main()
 

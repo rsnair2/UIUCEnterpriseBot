@@ -21,7 +21,7 @@
     author: Rajiv Nair (rsnair.com)
 """
 
-from enterprise import UIUCEnterpriseWebBot
+from webbot import UIUCEnterpriseWebBot
 import time
 import keyring
 from keyring.backends.OS_X import Keyring

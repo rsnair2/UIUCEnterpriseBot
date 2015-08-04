@@ -31,7 +31,7 @@ KEY_RSTS_DELETE = "DW"
 KEY_REG_BTN = "REG_BTN"
 
 
-class UIUCEnterpriseWebBot:
+class UIUCEnterpriseBot:
 
     session = None
     term = None

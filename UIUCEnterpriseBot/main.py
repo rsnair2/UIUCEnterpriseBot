@@ -28,7 +28,7 @@ import argparse
 import keyring
 from keyring.backends.OS_X import Keyring
 
-from src.webbot import UIUCEnterpriseWebBot
+from UIUCEnterpriseBot import UIUCEnterpriseBot
 
 RETURN_STATUS_SUCCESS = 0
 RETURN_STATUS_FAILURE = 1
@@ -66,7 +66,7 @@ def get_password(username, service_name):
 
 
 def poll(username, password, term, major, course, crn, add_on_release=False):
-    ss = UIUCEnterpriseWebBot()
+    ss = UIUCEnterpriseBot()
     ss.term = term
     ss.login(username=username, password=password)
 
@@ -82,8 +82,8 @@ def poll(username, password, term, major, course, crn, add_on_release=False):
                 sys.exit(RETURN_STATUS_SUCCESS)
 
         except KeyError:
-            print >> sys.stderr, \
-                "Error: poll failed due to an unexpected error. Exiting..."
+            print(sys.stderr,
+                  "Error: poll failed due to an unexpected error. Exiting...")
             sys.exit(RETURN_STATUS_FAILURE)
 
         time.sleep(5)
@@ -103,7 +103,7 @@ def main():
         password = args.password
 
     if password == '':
-        print >> sys.stderr, 'Error: unable to resolve passoword. Exiting...'
+        print(sys.stderr, 'Error: unable to resolve passoword. Exiting...')
         sys.exit(RETURN_STATUS_FAILURE)
 
     poll(username, password, args.term, args.major, args.course,

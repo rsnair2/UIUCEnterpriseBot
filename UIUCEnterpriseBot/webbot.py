@@ -1,25 +1,20 @@
-"""
-    UIUC Enterprise Webbot: a webbot to monitor the availability of a class
-    through the UIUC Enterprise system.
-
-    This file is part of UIUC Enterprise Webbot.
-
-    UIUC Enterprise Webbot is free software: you can redistribute it and/or
-    modify it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    UIUC Enterprise Webbot is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with UIUC Enterprise Webbot. If not, see
-    <http://www.gnu.org/licenses/>.
-
-    author: Rajiv Nair (rsnair.com)
-"""
+#
+# UIUCEnterpriseBot : a webbot that interacts with the
+# University of Illinois course registration system
+# Copyright (C) 2015  Rajiv Nair
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import requests
 from HTMLParser import HTMLParser
@@ -31,7 +26,7 @@ KEY_RSTS_DELETE = "DW"
 KEY_REG_BTN = "REG_BTN"
 
 
-class UIUCEnterpriseWebBot:
+class UIUCEnterpriseBot:
 
     session = None
     term = None

@@ -1,33 +1,30 @@
-"""
-    UIUC Enterprise Webbot: a webbot to monitor the availability of a class
-    through the UIUC Enterprise system.
+#
+# UIUCEnterpriseBot : a webbot that interacts with the
+# University of Illinois course registration system
+# Copyright (C) 2015  Rajiv Nair
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-    This file is part of UIUC Enterprise Webbot.
 
-    UIUC Enterprise Webbot is free software: you can redistribute it and/or
-    modify it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    UIUC Enterprise Webbot is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with UIUC Enterprise Webbot. If not, see
-    <http://www.gnu.org/licenses/>.
-
-    author: Rajiv Nair (rsnair.com)
-"""
-
-from webbot import UIUCEnterpriseWebBot
 import time
-import keyring
-from keyring.backends.OS_X import Keyring
 import sys
 import argparse
 
+import keyring
+from keyring.backends.OS_X import Keyring
+
+from UIUCEnterpriseBot import UIUCEnterpriseBot
 
 RETURN_STATUS_SUCCESS = 0
 RETURN_STATUS_FAILURE = 1
@@ -49,7 +46,6 @@ def setup_arguments_parser():
     parser.add_argument('--add-on-release', dest='add_on_release',
                         const=True, default=False, action='store_const',
                         help='Attempt to add course when it becomes available')
-
     # the service name is used by the Mac OSX keychain services api
     # for more info, read:
     # https://developer.apple.com/library/mac/documentation/Security/Conceptual/keychainServConcepts/03tasks/tasks.html#//apple_ref/doc/uid/TP30000897-CH205-TP9
@@ -65,7 +61,7 @@ def get_password(username, service_name):
 
 
 def poll(username, password, term, major, course, crn, add_on_release=False):
-    ss = UIUCEnterpriseWebBot()
+    ss = UIUCEnterpriseBot()
     ss.term = term
     ss.login(username=username, password=password)
 
@@ -81,8 +77,8 @@ def poll(username, password, term, major, course, crn, add_on_release=False):
                 sys.exit(RETURN_STATUS_SUCCESS)
 
         except KeyError:
-            print >> sys.stderr, \
-                "Error: poll failed due to an unexpected error. Exiting..."
+            print(sys.stderr,
+                  "Error: poll failed due to an unexpected error. Exiting...")
             sys.exit(RETURN_STATUS_FAILURE)
 
         time.sleep(5)
@@ -102,12 +98,9 @@ def main():
         password = args.password
 
     if password == '':
-        print >> sys.stderr, 'Error: unable to resolve passoword. Exiting...'
+        print(sys.stderr, 'Error: unable to resolve passoword. Exiting...')
         sys.exit(RETURN_STATUS_FAILURE)
 
     poll(username, password, args.term, args.major, args.course,
          args.crn, args.add_on_release)
-
-
-main()
 
